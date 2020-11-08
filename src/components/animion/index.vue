@@ -1,5 +1,5 @@
 <template>
-    $END$
+    <div>CSS动画</div>
 </template>
 
 <script>

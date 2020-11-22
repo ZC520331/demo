@@ -30,4 +30,7 @@ SubType.prototype = {
     }
 }
 let ins1 = new SubType()
-alert(ins1.getSubValue())
+alert(ins1.getSubValue()) // 这就会报错了
+
+// 原型链继承存在的问题: 引用类型值得原型会被所有实例共享(原型模式创建对象已经说过了)
+// 不能向父类传递参数

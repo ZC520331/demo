@@ -1,12 +1,3 @@
-// 工厂函数创建对象
-export const factoryCreateObj = function factoryCreateObj(name) {
-    return {
-        name: name,
-        print: function () {
-            console.log('工厂函数', this.name)
-        }
-    }
-}
 /**
  * 构造函数创建对象
  * 构造函数创建对象存在的问题
@@ -15,16 +6,16 @@ export const factoryCreateObj = function factoryCreateObj(name) {
  * 带来新的问题:
  *      全局命名空间冲突的问题
  *      解决方案: 共享函数定义在对象里面
- * 构造函数带来的问题
- *      解决方案: prototype
+ * 新问题的解决方案
+ *      prototype
  * */
-export const ConstructorCreateObj = function ConstructorCreateObj(name) {
+function ConstructorCreateObj(name) {
     this.name = name
     this.print = function () {
         console.log('constructorCreateObj', this.name)
     }
-    this.print = print
-    this.print = obj.print
+    // this.print = print
+    // this.print = obj.print
 }
 
 function print(){
@@ -36,13 +27,12 @@ let obj = {
         console.log('解决-全局命名空间冲突问题')
     }
 }
+// 构造函数创建对象
+let conObj1 = new ConstructorCreateObj('构造函数 name1')
+let conOnj2 = new ConstructorCreateObj('构造函数 name2')
+console.log('构造函数创建的两个对象', conObj1, conOnj2)
+console.log('浪费内存问题', conObj1.print === conOnj2.print) // false
+// 思考 构造函数和实例之间的关系 实例的constructor属性
 
-/**
- * prototype:Javascript 规定，每一个构造函数都有一个 prototype 属性，指向另一个对象。 这个对象的所有属性和方法，都会被构造函数的实例继承
- *
- *
- *
- * */
-export const Person = function Person(name) {
-    this.name = name
-}
+console.log(conObj1.constructor === ConstructorCreateObj) // true
+console.log(conOnj2.constructor === ConstructorCreateObj) // true1

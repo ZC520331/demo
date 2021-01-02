@@ -1,16 +1,24 @@
 <template>
   <div id="app">
     <HelloWorld />
+<!--    <editormd/>-->
+    <test-mk v-if="false"/>
+    <outline-view/>
   </div>
 </template>
 
 <script>
 import HelloWorld from './components/HelloWorld.vue'
-
+// import Editormd from "@/components/editormd";
+import testMk from '@/components/test'
+import OutlineView from "@/components/outlineView";
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    OutlineView,
+    // Editormd,
+    HelloWorld,
+    testMk
   }
 }
 </script>

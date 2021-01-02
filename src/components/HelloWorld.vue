@@ -1,5 +1,5 @@
 <template>
-  <div class="tree-view">
+  <div class="tree-view" v-if="false">
     <div class="tree-view-header">
       <span class="header-type header-or">OR</span>
       <span class="header-type header-dr">DR</span>
